@@ -9,11 +9,12 @@
             <div class="container">
                 @guest
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Personal Project App') }}
                 </a>
                 @else
-                    <a class="navbar-brand" href="/manage/sites">Sites</a>
-                    <a class="navbar-brand" href="/admin/books">Books</a>
+                    <a class="navbar-brand" href="{{ url('/home') }}"><b>Home</b></a>
+                    <a class="navbar-brand" href="/manage/account">Accounts</a>
+                    <a class="navbar-brand" href="/manage/category">Category</a>
                 @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -66,8 +67,7 @@
         </main>
     </div>
 
-    <footer class="row">
-        @include('includes.footer')
-    </footer>
+    <!-- footer -->
+    @include('includes.footer')
 </body>
 </html>

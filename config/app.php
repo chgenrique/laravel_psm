@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Personal App'),
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -161,6 +161,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Coders service providers
+         */
+        Reliese\Coders\CodersServiceProvider::class,
     ],
 
     /*

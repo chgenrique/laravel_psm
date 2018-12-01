@@ -19,15 +19,24 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('contact', function () {
     return view('pages.contact');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'manage'], function () {
-    Route::resource('sites', 'SiteController');
-    Route::resource('books', 'BooksController');
+//Route::resource('category', 'Manage\RegisterCategoryController');
+//Route::resource('account', 'Manage\AccountController');
+
+
+//Route::group(['middleware' => 'auth', 'prefix' => 'manage'], function () {
+//    Route::resource('sites', 'SiteController');
+//    Route::resource('books', 'BooksController');
+//});
+
+//Route::group(['middleware' => ['web','role:admin'], 'as' => 'users.' ,
+//    'prefix' => 'users', 'namespace' => 'Modules\Auth\Http\Controllers'], function()
+
+Route::group(['prefix' => 'manage', 'namespace' => 'Manage'], function()
+{
+    Route::resource('category', 'RegisterCategoryController');
+    Route::resource('account', 'AccountController');
 });
