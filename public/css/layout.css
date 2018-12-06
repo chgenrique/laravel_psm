@@ -1,0 +1,16 @@
+footer.main{
+    background: #fafafa;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+footer.main>ul {
+    list-style: none;
+    margin: 25px auto 35px;
+    padding: 0;
+}
+
+footer.main>ul>li {
+    display: inline-block;
+    margin: 0 18px;
+}
