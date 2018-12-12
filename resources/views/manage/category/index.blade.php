@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 <link href="{{ asset('css/category/style.css') }}" rel="stylesheet">
 
 @section('content')
@@ -62,7 +61,7 @@
 
                                         <!-- edit this object (uses the edit method found at GET /category/{id}/edit -->
                                         <a class="btn btn-small btn-info"
-                                           href="{{ URL::to('category/' . $value->id . '/edit') }}">Edit</a>
+                                           href="{{ URL::to('manage/category/' . $value->id . '/edit') }}">Edit</a>
 
                                         <!-- delete -->
                                         <div class="button-inline">

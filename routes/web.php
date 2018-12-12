@@ -39,4 +39,10 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Manage'], function()
 {
     Route::resource('category', 'RegisterCategoryController');
     Route::resource('account', 'AccountController');
+
+//    Route::post('/testing/{{id}}',[
+//        'uses' => 'TestController@testMethod',
+//        'as' => 'test.route'
+//    ]);
+
 });

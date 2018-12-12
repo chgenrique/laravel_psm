@@ -42,13 +42,6 @@ class RegisterCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // Pending validate request
-//        $category = $this->validate(request(), [
-//            'name' => 'required',
-//            'price' => 'required|numeric'
-//        ]);
-//        Product::create($product);
 //        return back()->with('success', 'Product has been added');
 
         $validatedData = $request->validate([
@@ -66,51 +59,55 @@ class RegisterCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\PspRegisterCategory  $pspRegisterCategory
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-//    public function show(PspRegisterCategory $pspRegisterCategory)
     public function show($id)
     {
-        //
-
-        $car = PspRegisterCategory::find($id);
-        return view('manage.category.show', array('category' => $car));
+        $cat = PspRegisterCategory::find($id);
+        return view('manage.category.show', array('category' => $cat, 'action' => 'View'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PspRegisterCategory  $pspRegisterCategory
-     * @return \Illuminate\Http\Response
+     * @param $pspRegisterId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit(PspRegisterCategory $pspRegisterCategory)
+    public function edit($pspRegisterId)
     {
-        //
+        $cat = PspRegisterCategory::find($pspRegisterId);
+        return view('manage.category.edit', array('category' => $cat, 'action' => 'Update'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PspRegisterCategory  $pspRegisterCategory
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param int $pspRegisterCategoryId
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function update(Request $request, PspRegisterCategory $pspRegisterCategory)
+    public function update(Request $request, int $pspRegisterCategoryId)
     {
-        //
+        $task = PspRegisterCategory::findOrFail($pspRegisterCategoryId);
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+        $input = $request->all();
+        $task->fill($input)->save();
+
+        return redirect('manage/category');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PspRegisterCategory  $pspRegisterCategory
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-//    public function destroy(PspRegisterCategory $pspRegisterCategory)
     public function destroy($id)
     {
-        //
         $registerCategory = PspRegisterCategory::find($id);
         $registerCategory->delete();
         return redirect()->back();
