@@ -141,6 +141,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'e_mail' => 'email address',
+        'pswd' => 'password'
+    ],
 
 ];

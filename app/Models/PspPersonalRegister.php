@@ -47,6 +47,7 @@ class PspPersonalRegister extends Eloquent
 
 	protected $fillable = [
 		'register_name',
+		'email',
 		'username',
 		'passwrd',
 		'description',

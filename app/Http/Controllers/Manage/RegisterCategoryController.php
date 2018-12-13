@@ -29,8 +29,6 @@ class RegisterCategoryController extends Controller
      */
     public function create()
     {
-        //
-
         return view('manage.category.create');
     }
 

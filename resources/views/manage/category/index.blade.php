@@ -52,10 +52,9 @@
                                     <!-- we will also add show, edit, and delete buttons -->
                                     <td>
 
-                                        <!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
-                                        <!-- we will add this later since its a little more complicated than the other two buttons -->
+                                        <!-- delete the category (uses the destroy method DESTROY /category/{id} -->
 
-                                        <!-- show the nerd (uses the show method found at GET /nerds/{id} -->
+                                        <!-- show the nerd (uses the show method found at GET /category/{id} -->
                                         <a class="btn btn-small btn-success"
                                            href="{{ URL::to('manage/category/' . $value->id) }}">Show</a>
 
