@@ -46,3 +46,6 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Manage'], function()
 //    ]);
 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
